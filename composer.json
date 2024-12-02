@@ -1,7 +1,7 @@
 {
-    "name": "sylius/plugin-skeleton",
+    "name": "sylius-academy/workshop-plugin",
     "type": "sylius-plugin",
-    "description": "Acme example plugin for Sylius.",
+    "description": "Workshop plugin for Sylius.",
     "keywords": [
         "sylius",
         "sylius-plugin"
@@ -65,8 +65,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Acme\\SyliusExamplePlugin\\": "src/",
-            "Tests\\Acme\\SyliusExamplePlugin\\": "tests/"
+            "SyliusAcademy\\WorkshopPlugin\\": "src/",
+            "Tests\\SyliusAcademy\\WorkshopPlugin\\": [
+                "tests/",
+                "tests/Application/src"
+            ]
         }
     },
     "autoload-dev": {
