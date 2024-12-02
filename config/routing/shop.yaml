@@ -1,0 +1,23 @@
+sylius_academy.workshop_plugin.shop_branded_products_index:
+    path: /branded-products/{code}
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.product::indexAction
+        _sylius:
+            template: "@SyliusAcademyWorkshopPlugin/Shop/Product/brandedProducts.html.twig"
+            repository:
+                method: findBrandedProducts
+                arguments:
+                    - expr:service('sylius_academy_workshop.repository.brand').findOneByCode($code)
+
+sylius_academy.workshop_plugin.shop_partial_branded_products_index:
+    path: /_partial/brands
+    methods: [GET]
+    defaults:
+        _controller: sylius_academy_workshop.controller.brand::indexAction
+        _sylius:
+            template: "@SyliusAcademyWorkshopPlugin/Shop/Brand/_brand.html.twig"
+            repository:
+                method: findEnabledByChannel
+                arguments:
+                    - expr:service('sylius.context.channel').getChannel()

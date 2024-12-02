@@ -1,0 +1,7 @@
+sylius_academy.workshop_plugin.admin:
+    resource: "@SyliusAcademyWorkshopPlugin/config/routing/admin.yaml"
+    prefix: '/%sylius_admin.path_name%'
+
+sylius_academy.workshop_plugin.shop:
+    resource: "@SyliusAcademyWorkshopPlugin/config/routing/shop.yaml"
+    prefix: /{_locale}
