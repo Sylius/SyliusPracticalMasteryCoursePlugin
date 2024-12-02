@@ -1,0 +1,33 @@
+framework:
+    workflows:
+        !php/const SyliusAcademy\WorkshopPlugin\StateMachine\BrandTransitions::GRAPH:
+            type: state_machine
+            marking_store:
+                type: method
+                property: state
+            supports:
+                - SyliusAcademy\WorkshopPlugin\Entity\Brand\Brand
+            initial_marking: !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_NEW
+            places:
+                - !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_NEW
+                - !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_APPROVED
+                - !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_REJECTED
+                - !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_SUSPENDED
+            transitions:
+                !php/const SyliusAcademy\WorkshopPlugin\StateMachine\BrandTransitions::TRANSITION_APPROVE:
+                    from:
+                        - !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_NEW
+                        - !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_REJECTED
+                        - !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_SUSPENDED
+                    to:
+                        - !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_APPROVED
+                !php/const SyliusAcademy\WorkshopPlugin\StateMachine\BrandTransitions::TRANSITION_REJECT:
+                    from:
+                        - !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_NEW
+                    to:
+                        - !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_REJECTED
+                !php/const SyliusAcademy\WorkshopPlugin\StateMachine\BrandTransitions::TRANSITION_SUSPEND:
+                    from:
+                        - !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_APPROVED
+                    to:
+                        - !php/const SyliusAcademy\WorkshopPlugin\Entity\Brand\BrandInterface::STATE_SUSPENDED
