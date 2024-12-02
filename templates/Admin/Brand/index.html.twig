@@ -1,0 +1,8 @@
+{% for brand in brands %}
+    {{ brand.code }}
+    {{ brand.name }}
+    {% for product in brand.products %}
+        {{ product.name }}
+    {% endfor %}
+    <br>
+{% endfor %}
