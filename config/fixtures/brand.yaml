@@ -1,0 +1,15 @@
+sylius_fixtures:
+    suites:
+        default:
+            fixtures:
+                brand:
+                    priority: 1000
+                    options:
+                        custom:
+                            honda:
+                                code: honda
+                                name: Honda
+                                type: automotive
+                            yamaha:
+                                name: Yamaha
+                            suzuki:

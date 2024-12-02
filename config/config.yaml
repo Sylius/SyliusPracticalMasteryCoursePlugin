@@ -1,3 +1,4 @@
 imports:
     - { resource: "@SyliusAcademyWorkshopPlugin/config/grids/*.yaml" }
     - { resource: "@SyliusAcademyWorkshopPlugin/config/workflow/*.yaml" }
+    - { resource: "@SyliusAcademyWorkshopPlugin/config/fixtures/*.yaml" }
