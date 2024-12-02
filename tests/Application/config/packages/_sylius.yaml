@@ -7,8 +7,13 @@ imports:
 
     - { resource: "@SyliusApiBundle/Resources/config/app/config.yaml" }
 
+    - { resource: "@SyliusAcademyWorkshopPlugin/config/config.yaml" }
+
 parameters:
     sylius_core.public_dir: '%kernel.project_dir%/public'
+
+sylius_state_machine_abstraction:
+    default_adapter: symfony_workflow
 
 sylius_shop:
     product_grid:
@@ -16,3 +21,10 @@ sylius_shop:
 
 sylius_api:
     enabled: true
+
+sylius_product:
+    resources:
+        product:
+            classes:
+                model: Tests\SyliusAcademy\WorkshopPlugin\Entity\Product\Product
+                repository: Tests\SyliusAcademy\WorkshopPlugin\Repository\ProductRepository

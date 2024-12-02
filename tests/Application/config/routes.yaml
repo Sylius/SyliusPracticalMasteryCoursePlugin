@@ -1,0 +1,2 @@
+sylius_academy.workshop_plugin:
+    resource: "@SyliusAcademyWorkshopPlugin/config/routing.yaml"
