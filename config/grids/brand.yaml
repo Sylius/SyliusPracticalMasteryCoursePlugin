@@ -1,0 +1,117 @@
+sylius_grid:
+    templates:
+        action:
+            showProducts: '@SyliusAcademyWorkshopPlugin/Grid/Action/showProducts.html.twig'
+    grids:
+        sylius_academy.workshop_plugin.admin_brand:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%sylius_academy_workshop.model.brand.class%"
+            sorting:
+                createdAt: desc
+            fields:
+                id:
+                    type: string
+                    label: sylius_academy_workshop_plugin.grid.id
+                code:
+                    type: string
+                    label: sylius_academy_workshop_plugin.grid.code
+                name:
+                    type: string
+                    sortable: ~
+                    label: sylius_academy_workshop_plugin.grid.name
+                enabled:
+                    type: twig
+                    options:
+                        template: "@SyliusUi/Grid/Field/enabled.html.twig"
+                    sortable: ~
+                    label: sylius_academy_workshop_plugin.grid.enabled
+                createdAt:
+                    type: datetime
+                    sortable: ~
+                    label: sylius_academy_workshop_plugin.grid.created_at
+                updatedAt:
+                    type: datetime
+                    sortable: ~
+                    label: sylius_academy_workshop_plugin.grid.updated_at
+                associated_products:
+                    type: associated_products
+                    label: sylius_academy_workshop_plugin.grid.associated_products
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
+                    showProducts:
+                        type: showProducts
+                        label: sylius_academy_workshop_plugin.grid.show_products
+                        options:
+                            link:
+                                route: sylius_academy.workshop_plugin.shop_branded_products_index
+                                parameters:
+                                    code: resource.code
+                    reject:
+                        type: apply_transition
+                        label: sylius_academy_workshop_plugin.ui.reject
+                        icon: close icon
+                        options:
+                            link:
+                                route: sylius_academy.workshop_plugin.admin_brand_reject
+                                parameters:
+                                    id: resource.id
+                            class: red
+                            transition: reject
+                            graph: sylius_brand
+                    approve:
+                        type: apply_transition
+                        label: sylius_academy_workshop_plugin.ui.approve
+                        icon: check
+                        options:
+                            link:
+                                route: sylius_academy.workshop_plugin.admin_brand_approve
+                                parameters:
+                                    id: resource.id
+                            class: green
+                            transition: approve
+                            graph: sylius_brand
+                    suspend:
+                        type: apply_transition
+                        label: sylius_academy_workshop_plugin.ui.suspend
+                        icon: close icon
+                        options:
+                            link:
+                                route: sylius_academy.workshop_plugin.admin_brand_suspend
+                                parameters:
+                                    id: resource.id
+                            class: yellow
+                            transition: suspend
+                            graph: sylius_brand
+                bulk:
+                    delete:
+                        type: delete
+            filters:
+                search:
+                    type: string
+                    label: sylius_academy_workshop_plugin.grid.search
+                    options:
+                        fields: [code, name]
+                enabled:
+                    type: boolean
+                    label: sylius_academy_workshop_plugin.grid.enabled
+                createdAt:
+                    type: date
+                    label: sylius_academy_workshop_plugin.grid.created_at
+                    options:
+                        field: createdAt
+                        inclusive_to: true
+                updatedAt:
+                    type: date
+                    label: sylius_academy_workshop_plugin.grid.updated_at
+                    options:
+                        field: updatedAt
+                        inclusive_to: true

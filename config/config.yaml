@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@SyliusAcademyWorkshopPlugin/config/grids/*.yaml" }

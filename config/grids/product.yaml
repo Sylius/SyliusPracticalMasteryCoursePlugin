@@ -1,0 +1,9 @@
+sylius_grid:
+    grids:
+        sylius_admin_product:
+            filters:
+                brand:
+                    type: entity
+                    form_options:
+                        class: "%sylius_academy_workshop.model.brand.class%"
+                        choice_label: name

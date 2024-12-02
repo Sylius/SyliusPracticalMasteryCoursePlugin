@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+           http://symfony.com/schema/dic/services/services-1.0.xsd"
+>
+    <services>
+        <service class="SyliusAcademy\WorkshopPlugin\Grid\Field\AssociatedProductsType"
+                 id="sylius_academy.workshop_plugin.grid.field.associated_products_type"
+        >
+            <tag name="sylius.grid_field" type="associated_products"/>
+        </service>
+    </services>
+</container>
