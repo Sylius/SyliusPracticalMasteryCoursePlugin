@@ -1,0 +1,14 @@
+sylius_academy_workshop_plugin:
+    brand:
+        name:
+            not_blank: Brand name cannot be blank.
+            max: Brand name cannot be longer than {{ limit }} characters.
+        code:
+            not_blank: Brand code cannot be blank.
+            max: Brand code cannot be longer than {{ limit }} characters.
+            unique: Brand code must be unique.
+        type:
+            invalid: Brand type is invalid.
+    product:
+        brand:
+            not_null: Product must belong to some brand.

@@ -1,0 +1,46 @@
+sylius_academy_workshop_plugin:
+    ui:
+        brands: Brands
+        edit_brand: Edit brand
+        new_brand: New brand
+        branded_products: Branded products
+        approve: Approve
+        reject: Reject
+        suspend: Suspend
+    grid:
+        id: ID
+        code: Code
+        name: Name
+        enabled: Enabled
+        created_at: Created at
+        updated_at: Updated at
+        associated_products: Associated products
+        search: Search
+        show_products: Show products
+    form:
+        brand:
+            code: Code
+            name: Name
+            enabled: Enabled
+            type: Type
+            type_electronics: Electronics
+            type_automotive: Automotive
+            description: Description
+        product:
+            brand: Brand
+            select_brand: Select brand
+        catalog_promotion:
+            scope:
+                for_brand: For brand
+            action:
+                fixed_price: Fixed price
+    email:
+        brand:
+            rejection:
+                subject: Brand rejected
+                greeting: Unfortunately the brand was rejected
+                button: Edit the brand
+    promotion:
+        has_brand: Has brand
+        unit_fixed_price: Unit fixed price
+        brand_filter: Brand filter
