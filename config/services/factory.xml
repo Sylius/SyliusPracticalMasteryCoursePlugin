@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+           http://symfony.com/schema/dic/services/services-1.0.xsd"
+>
+    <services>
+        <service class="SyliusAcademy\WorkshopPlugin\Factory\BrandFactory"
+                 id="sylius_academy.workshop_plugin.factory.brand_factory"
+                 decorates="sylius_academy_workshop.factory.brand"
+        >
+            <argument id="sylius_academy.workshop_plugin.factory.brand_factory.inner" type="service"/>
+        </service>
+    </services>
+</container>
