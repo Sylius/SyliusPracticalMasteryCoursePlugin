@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
+    <class name="SyliusAcademy\WorkshopPlugin\Entity\Brand\Brand">
+        <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
+            <option name="fields">code</option>
+            <option name="message">sylius_academy_workshop_plugin.brand.code.unique</option>
+            <option name="groups">sylius</option>
+        </constraint>
+        <constraint name="SyliusAcademy\WorkshopPlugin\Validator\Constraints\BrandHasCorrectType">
+            <option name="groups">sylius</option>
+        </constraint>
+        <property name="name">
+            <constraint name="NotBlank">
+                <option name="message">sylius_academy_workshop_plugin.brand.name.not_blank</option>
+                <option name="groups">sylius</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="maxMessage">sylius_academy_workshop_plugin.brand.name.max</option>
+                <option name="groups">sylius</option>
+            </constraint>
+        </property>
+        <property name="code">
+            <constraint name="NotBlank">
+                <option name="message">sylius_academy_workshop_plugin.brand.code.not_blank</option>
+                <option name="groups">sylius</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="maxMessage">sylius_academy_workshop_plugin.brand.code.max</option>
+                <option name="groups">sylius</option>
+            </constraint>
+        </property>
+    </class>
+</constraint-mapping>
