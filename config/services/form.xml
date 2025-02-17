@@ -34,5 +34,11 @@
         >
             <tag name="form.type_extension"/>
         </service>
+        <service class="SyliusAcademy\WorkshopPlugin\Form\Type\WorkshopGatewayConfigurationType"
+                 id="sylius_academy.workshop_plugin.form.type.workshop_gateway_configuration"
+        >
+            <tag name="sylius.gateway_configuration_type" type="workshop_payment" label="Workshop Payment"/>
+            <tag name="form.type"/>
+        </service>
     </services>
 </container>

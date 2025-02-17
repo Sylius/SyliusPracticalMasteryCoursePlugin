@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+           http://symfony.com/schema/dic/services/services-1.0.xsd"
+>
+    <services>
+        <service class="Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder"
+                 id="sylius_academy.workshop_plugin.payum.factory.workshop_payment"
+        >
+            <argument>SyliusAcademy\WorkshopPlugin\Payum\Factory\WorkshopPaymentGatewayFactory</argument>
+            <tag name="payum.gateway_factory_builder" factory="workshop_payment" />
+        </service>
+        <service id="SyliusAcademy\WorkshopPlugin\Payum\Action\CaptureAction" public="true">
+            <tag name="payum.action" factory="workshop_payment" alias="payum.action.capture" />
+        </service>
+        <service id="SyliusAcademy\WorkshopPlugin\Payum\Action\ConvertPaymentAction" public="true">
+            <tag name="payum.action" factory="workshop_payment" alias="payum.action.convert_payment"/>
+        </service>
+        <service id="SyliusAcademy\WorkshopPlugin\Payum\Action\NotifyAction" public="true">
+            <tag name="payum.action" factory="workshop_payment" alias="payum.action.notify"/>
+        </service>
+    </services>
+</container>
